@@ -1,0 +1,13 @@
+name: aqBarMessages
+version: '${project.version}'
+main: org.aqu0ryy.barmessages.Loader
+
+api-version: '1.16'
+softdepend: [ Vault, PlayerPoints ]
+
+author: aqu0ryy
+description: Плагин на отправку объявлений в босс-бар.
+
+commands:
+  aqbarmessages:
+    aliases: [ aqbm, bm ]

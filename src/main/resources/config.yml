@@ -1,0 +1,35 @@
+text-settings:
+  min-length: 4 # Минимальная длина сообщения.
+  max-length: 16 # Максимальная длина сообщения.
+
+bar-settings:
+  color: YELLOW
+  style: SOLID
+  duration: 10
+  format: "&e{message} &7(Написал: {player})"
+
+hook-settings:
+  use-hook: vault # Доступно: vault, playerpoints.
+  money: 50
+
+plugin-messages:
+  no-perm: '&cУ вас недостаточно прав.'
+  no-console: '&cКоманда доступна только игрокам :c'
+  admin-help:
+    - ''
+    - ' &c/{label} <сообщение> &7- Отправить сообщение.'
+    - ' &c/{label} reload &7- Перезагрузить конфиги.'
+    - ''
+  user-help:
+    - ''
+    - ' &c/{label} <сообщение> &7- Отправить сообщение.'
+    - ''
+
+command-messages:
+  args:
+    success: '&aВы отправили сообщение, с вас снято &e{money} &aмонет.'
+    already: '&eСейчас активно другое сообщение, подождите.'
+    no-length: '&cСлишком короткое/длинное сообщение.'
+    no-money: '&cУ вас недостаточно монет на балансе.'
+  reload:
+    success: '&aКонфиги успешно перезагружены.'
