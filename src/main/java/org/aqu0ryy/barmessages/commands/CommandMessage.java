@@ -39,14 +39,14 @@ public class CommandMessage extends AbstractCommand {
                 chatUtil.sendMessage(sender, message.replace("{label}", label));
             }
         } else {
-            if (sender.hasPermission("aqbarmessages.admin")) {
-                if (args[0].equalsIgnoreCase("reload")) {
+            if (args[0].equalsIgnoreCase("reload")) {
+                if (sender.hasPermission("aqbarmessages.admin")) {
                     plugin.reload();
                     chatUtil.sendMessage(sender, config.get().getString("command-messages.reload.success"));
-                    return;
+                } else {
+                    chatUtil.sendMessage(sender, config.get().getString("plugin-messages.no-perm"));
                 }
-            } else {
-                chatUtil.sendMessage(sender, config.get().getString("plugin-messages.no-perm"));
+
                 return;
             }
 
@@ -55,7 +55,7 @@ public class CommandMessage extends AbstractCommand {
 
                 if (message.length() >= config.get().getInt("text-settings.min-length") && message.length() <= config.get().getInt("text-settings.max-length")) {
                     for (Player player : Bukkit.getOnlinePlayers()) {
-                        if (barUtil.hasBossBars(player)) {
+                        if (!barUtil.hasBossBars(player)) {
                             if (hookManager.checkHook((Player) sender)) {
                                 barUtil.sendBossBar(player, config.get().getString("bar-settings.format").replace("{message}", message).replace("{player}", sender.getName()),
                                         BarColor.valueOf(config.get().getString("bar-settings.color")), BarStyle.valueOf(config.get().getString("bar-settings.style")), config.get().getInt("bar-settings.duration"));

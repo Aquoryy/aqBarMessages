@@ -5,8 +5,6 @@ import org.aqu0ryy.barmessages.configs.Config;
 import org.aqu0ryy.barmessages.utils.ChatUtil;
 import org.bukkit.entity.Player;
 
-import java.util.Objects;
-
 public class HookManager {
 
     private final Loader plugin;
@@ -42,6 +40,7 @@ public class HookManager {
                         return true;
                     } else {
                         chatUtil.sendMessage(player, config.get().getString("command-messages.args.no-money"));
+                        return false;
                     }
                 }
 
@@ -54,6 +53,7 @@ public class HookManager {
                         return true;
                     } else {
                         chatUtil.sendMessage(player, config.get().getString("command-messages.args.no-money"));
+                        return false;
                     }
                 }
 
@@ -62,6 +62,7 @@ public class HookManager {
                 config.get().set("hook-settings.use-hook", "vault");
                 config.save();
                 plugin.reload();
+                return true;
         }
 
         return false;

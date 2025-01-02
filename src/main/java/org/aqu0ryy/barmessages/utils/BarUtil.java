@@ -23,7 +23,7 @@ public class BarUtil {
     }
 
     public void sendBossBar(Player player, String text, BarColor color, BarStyle style, int duration) {
-        if (hasBossBars(player)) {
+        if (!hasBossBars(player)) {
             BossBar bossBar = Bukkit.createBossBar(chatUtil.color(text), color, style);
 
             bossBar.addPlayer(player);
@@ -52,6 +52,6 @@ public class BarUtil {
     }
 
     public boolean hasBossBars(Player player) {
-        return !bossBars.containsKey(player);
+        return bossBars.containsKey(player);
     }
 }
